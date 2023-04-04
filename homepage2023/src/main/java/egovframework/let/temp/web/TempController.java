@@ -64,12 +64,14 @@ public class TempController {
 	//임시데이터 등록/수정
 	@RequestMapping(value = "/temp/tempRegist.do")
 	public String tempRegist(TempVO tempVO, HttpServletRequest request, ModelMap model) throws Exception{
+		/* 수정할 때 오픈하기 
 		TempVO result = new TempVO();
 		if(!EgovStringUtil.isEmpty(tempVO.getTempId())) {
 			result = tempService.selectTemp(tempVO);
 		}
-		model.addAttribute("result", result);
 		
+		model.addAttribute("result", result);
+		*/
 		return "temp/TempRegist";
 	}
 	

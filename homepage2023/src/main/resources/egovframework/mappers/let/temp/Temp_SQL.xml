@@ -21,7 +21,7 @@
 		  TEMP_ID
 		  , TEMP_VAL
 		FROM lettemp
-		ORDER BY TEMP_ID DESC
+		ORDER BY TEMP_ID DESC <!-- orver by 쓰는 이유 설명하기 -->
 		<!-- LIMIT #{recordCountPerPage} OFFSET #{firstIndex} -->
 	</select>
 	

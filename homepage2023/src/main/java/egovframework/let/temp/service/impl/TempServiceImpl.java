@@ -27,6 +27,11 @@ public class TempServiceImpl extends EgovAbstractServiceImpl implements TempServ
     @Resource(name="tempMapper")
 	private TempMapper tempMapper;
     
+    /*
+    @Resource(name = "egovTempIdGnrService")
+    private EgovIdGnrService idgenService;
+    */
+    
 	/*
 	public TempVO selectTemp(TempVO vo) throws Exception {
 		return tempDAO.selectTemp(vo);
