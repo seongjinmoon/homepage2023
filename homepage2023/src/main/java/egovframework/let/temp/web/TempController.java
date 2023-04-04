@@ -58,6 +58,8 @@ public class TempController {
 		paginationInfo.setTotalRecordCount(totCnt);
 		model.addAttribute("paginationInfo", paginationInfo);
 		*/
+		
+		
 		return "temp/TempSelectList";
 	}
 	
