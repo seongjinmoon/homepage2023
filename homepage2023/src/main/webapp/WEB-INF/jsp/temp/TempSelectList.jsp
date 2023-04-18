@@ -17,7 +17,7 @@ th, td{padding:5px;border:1px solid #000;}
 </style>
 </head>
 <body>
-<%-- 게시물 총 수 : <c:out value="${paginationInfo.totalRecordCount}"/>건 --%>
+게시물 총 수 : <c:out value="${paginationInfo.totalRecordCount}"/>건
 <table>
 	<thead>
 		<tr>
@@ -29,20 +29,25 @@ th, td{padding:5px;border:1px solid #000;}
 		<c:forEach var="result" items="${resultList }">
 			<tr>
 				<td><c:out value="${result.tempId}"/></td>
-				<td><c:out value="${result.tempVal}"/></td>
-				<%-- 
+				<%-- <td><c:out value="${result.tempVal}"/></td> --%>
 				<td>
 					<c:url var="viewUrl" value="/temp/select.do">
 						<c:param name="tempId" value="${result.tempId}"/>
 					</c:url>
 					<a href="${viewUrl}"><c:out value="${result.tempVal}"/></a>
 				</td>
-				 --%>
 			</tr>
 		</c:forEach>
 	</tbody>
 </table>
 
+<div id="paging_div">
+	<ul class="paging_align">
+		<c:url var="pageUrl" value="/temp/selectList.do?"/>
+		<c:set var="pagingParam"><c:out value="${pageUrl}"/></c:set>
+	   <ui:pagination paginationInfo="${paginationInfo}" type="image" jsFunction="${pagingParam}" />
+	</ul>
+</div>
 
 <button type="button" id="btn-reg" data-href="/temp/tempRegist.do">등록하기</button>
 

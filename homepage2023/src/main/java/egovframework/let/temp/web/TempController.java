@@ -35,30 +35,29 @@ public class TempController {
 	@RequestMapping(value = "/temp/selectList.do")
 	public String selectList(TempVO tempVO,  HttpServletRequest request, ModelMap model) throws Exception{
 		//1차
+		/*
 		List<EgovMap> resultList = tempService.selectTempList(tempVO);
 		model.addAttribute("resultList", resultList);
+		*/
 		
-		/*
 		//2차 - 페이징 작업 시
 		PaginationInfo paginationInfo = new PaginationInfo();
 
-		paginationInfo.setCurrentPageNo(searchVO.getPageIndex());
-		paginationInfo.setRecordCountPerPage(searchVO.getPageUnit());
-		paginationInfo.setPageSize(searchVO.getPageSize());
+		paginationInfo.setCurrentPageNo(tempVO.getPageIndex());
+		paginationInfo.setRecordCountPerPage(tempVO.getPageUnit());
+		paginationInfo.setPageSize(tempVO.getPageSize());
 
-		searchVO.setFirstIndex(paginationInfo.getFirstRecordIndex());
-		searchVO.setLastIndex(paginationInfo.getLastRecordIndex());
-		searchVO.setRecordCountPerPage(paginationInfo.getRecordCountPerPage());
+		tempVO.setFirstIndex(paginationInfo.getFirstRecordIndex());
+		tempVO.setLastIndex(paginationInfo.getLastRecordIndex());
+		tempVO.setRecordCountPerPage(paginationInfo.getRecordCountPerPage());
 		
-		List<EgovMap> resultList = tempService.selectTempList(searchVO);
+		List<EgovMap> resultList = tempService.selectTempList(tempVO);
 		model.addAttribute("resultList", resultList);
 		
-		int totCnt = tempService.selectTempListCnt(searchVO);
+		int totCnt = tempService.selectTempListCnt(tempVO);
 		
 		paginationInfo.setTotalRecordCount(totCnt);
 		model.addAttribute("paginationInfo", paginationInfo);
-		*/
-		
 		
 		return "temp/TempSelectList";
 	}
@@ -102,14 +101,14 @@ public class TempController {
 	
 	//JSTL
 	@RequestMapping(value = "/temp/jstl.do")
-	public String jstl(@ModelAttribute("searchVO") TempVO searchVO, HttpServletRequest request, ModelMap model) throws Exception{
+	public String jstl(TempVO tempVO, HttpServletRequest request, ModelMap model) throws Exception{
 		
 		return "/temp/Jstl";
 	}
 	
 	//JSTL Import용
 	@RequestMapping(value = "/temp/jstlImport.do")
-	public String jstlImport(@ModelAttribute("searchVO") TempVO searchVO, HttpServletRequest request, ModelMap model) throws Exception{
+	public String jstlImport(TempVO tempVO, HttpServletRequest request, ModelMap model) throws Exception{
 		
 		return "/temp/JstlImport";
 	}
