@@ -105,7 +105,7 @@
 		<c:when test="${step eq '8'}">
 			<li>
 				<h3>c:url Tag : url 주소</h3>
-				<h4>기본문법 : &#60;c:param name="변수명" value="값"/&#62;</h4>
+				<h4>기본문법 : &#60;c:url var="변수명" value="값"/&#62;</h4>
 				
 				URL 1 : <c:url var="link1" value="https://www.naver.com"/> <br/>
 				URL 2 : <c:url var="link2" value="/temp/jstlImport.do"> 
@@ -131,7 +131,7 @@
 		</c:when>
 		<c:when test="${step eq '10'}">
 			<li>
-				<h3>fn:indexOf() : 주어진 문자열이 특정 문자열로 끝나는 지 확인하는데 사용</h3>
+				<h3>fn:indexOf() : 주어진 문자열이 특정 문자열을 포함하면 주어진 문자열 내에서 인덱스를 반환</h3>
 				
 				<c:set var="string" value="It is first String."/>  
 				<p>Index : ${fn:indexOf(string, "first")}</p>  
@@ -141,13 +141,13 @@
 			<li>
 				<h3>fn:startsWith() : 주어진 문자열이 특정 문자열 값으로 시작되는지 확인하는 데 사용</h3>
 				
-				<c:set var="String" value="Welcome to JSP programming"/>  
+				<c:set var="String" value="Welcome to MSJ class"/>  
 				<c:if test="${fn:startsWith(String, 'Welcome')}">  
 				   <p>String starts with Welcome</p>  
 				</c:if>  
 				  
-				<c:if test="${fn:startsWith(String, 'programming')}">  
-				   <p>String starts with programming</p>  
+				<c:if test="${fn:startsWith(String, 'class')}">  
+				   <p>String starts with class</p>  
 				</c:if> 
 			</li>
 		</c:when>
@@ -155,13 +155,13 @@
 			<li>
 				<h3>fn:endsWith() : 주어진 문자열이 특정 문자열 값으로 끝나는 지 확인하는데 사용</h3>
 				
-				<c:set var="String" value="Welcome to JSP programming"/>  
-				<c:if test="${fn:endsWith(String, 'programming')}">  
-				   <p>String ends with programming</p>  
+				<c:set var="String" value="Welcome to MSJ class"/>  
+				<c:if test="${fn:endsWith(String, 'class')}">  
+				   <p>String ends with class</p>  
 				</c:if>  
 				  
-				<c:if test="${fn:endsWith(String, 'JSP')}">  
-				   <p>String ends with JSP</p>  
+				<c:if test="${fn:endsWith(String, 'MSJ')}">  
+				   <p>String ends with MSJ</p>  
 				</c:if> 
 			</li>
 		</c:when>
@@ -191,7 +191,7 @@
 			<li>
 				<h3>fn:toLowerCase() : 문자열의 모든 문자를 소문자로 변환</h3>
 				
-				<c:set var="string" value="Welcome to JSP Programming"/>  
+				<c:set var="string" value="Welcome to MSJ class"/>  
 				<c:out value="${fn:toLowerCase(string)}"/>  
 			</li>
 		</c:when>
@@ -199,7 +199,7 @@
 			<li>
 				<h3>fn:toUpperCase() : 문자열의 모든 문자를 대문자로 변환</h3>
 				
-				<c:set var="string" value="Welcome to JSP Programming"/>  
+				<c:set var="string" value="Welcome to MSJ class"/>  
 				<c:out value="${fn:toUpperCase(string)}"/>  
 			</li>
 		</c:when>
@@ -207,7 +207,7 @@
 			<li>
 				<h3>fn:substring() : 주어진 시작 및 끝 위치에 따라 문자열의 하위 집합을 반환</h3>
 				
-				<c:set var="string" value="2022-01-01"/>
+				<c:set var="string" value="YYYY-01-01"/>
 				<c:out value="${fn:substring(string, 0, 4)}"/>
 				<c:out value="${fn:substring(string, 5, 7)}"/>
 			</li>
@@ -216,7 +216,7 @@
 			<li>
 				<h3>fn:replace() : 모든 문자열을 다른 문자열 시퀀스로 바꿈</h3>
 				
-				<c:set var="string" value="2022-01-01"/>
+				<c:set var="string" value="YYYY-01-01"/>
 				<c:out value="${fn:replace(string, '-', '.')}"/> 
 			</li>
 		</c:when>
@@ -224,7 +224,7 @@
 			<li>
 				<h3>fn:trim() : 문자열의 양쪽 끝에서 공백을 제거(문자열 사이의 공백은 사라지지 않음)</h3>
 				
-				<c:set var="str1" value="        Welcome to JSP programming         "/>  
+				<c:set var="str1" value="        Welcome to MSJ class         "/>  
 				<p>String-1 Length is : ${fn:length(str1)}</p>  
 				  
 				<c:set var="str2" value="${fn:trim(str1)}" />  
@@ -236,7 +236,7 @@
 		<%-- formatting tag 설명 --%>
 		<c:when test="${step eq '20'}">
 			<li>
-				<h3>fmt:formatDate : 문자열의 양쪽 끝에서 공백을 제거</h3>
+				<h3>fmt:formatDate : 제공된 패턴 및 스타일을 사용하여 시간 및 날짜를 형식화함</h3>
 				
 				<c:set var="Date" value="<%=new java.util.Date()%>" />
 				${Date}<br/>
