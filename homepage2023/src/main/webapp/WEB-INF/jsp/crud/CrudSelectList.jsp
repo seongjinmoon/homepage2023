@@ -64,7 +64,7 @@ a{text-decoration:underline;margin:5px;}
 	
 	<div id="paging_div">
 		<ul class="paging_align">
-			<c:url var="pageUrl" value="/temp2/selectList.do?"/>
+			<c:url var="pageUrl" value="/crud/selectList.do?"/>
 			<c:set var="pagingParam"><c:out value="${pageUrl}"/></c:set>
 		   <ui:pagination paginationInfo="${paginationInfo}" type="image" jsFunction="${pagingParam}" />
 		</ul>
