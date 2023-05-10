@@ -28,19 +28,16 @@ public class BoardServiceImpl extends EgovAbstractServiceImpl implements BoardSe
     private EgovIdGnrService idgenService;
     
     //게시물 목록 가져오기
-  	@Override
   	public List<EgovMap> selectBoardList(BoardVO vo) throws Exception {
   		return boardMapper.selectBoardList(vo);
   	}
   	
   	//게시물 목록 수
-  	@Override
   	public int selectBoardListCnt(BoardVO vo) throws Exception {
   		return boardMapper.selectBoardListCnt(vo);
   	}
   	
     //게시물 상세정보
-	@Override
 	public BoardVO selectBoard(BoardVO vo) throws Exception {
 		//조회수 업
 		boardMapper.updateViewCnt(vo);
@@ -52,7 +49,6 @@ public class BoardServiceImpl extends EgovAbstractServiceImpl implements BoardSe
 	}
 	
 	//게시물 등록
-	@Override
 	public String insertBoard(BoardVO vo) throws Exception {
 		String id = idgenService.getNextStringId();
 		vo.setBoardId(id);
@@ -62,13 +58,11 @@ public class BoardServiceImpl extends EgovAbstractServiceImpl implements BoardSe
 	}
 	
 	//게시물 수정하기
-	@Override
 	public void updateBoard(BoardVO vo) throws Exception {
 		boardMapper.updateBoard(vo);
 	}
 	
 	//게시물 삭제하기
-	@Override
 	public void deleteBoard(BoardVO vo) throws Exception {
 		boardMapper.deleteBoard(vo);
 	}
