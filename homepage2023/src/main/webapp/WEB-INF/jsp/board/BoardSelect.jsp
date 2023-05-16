@@ -29,6 +29,8 @@
   	<c:if test="${not empty searchVO.searchKeyword}"><c:param name="searchKeyword" value="${searchVO.searchKeyword}" /></c:if>
 </c:url>
 
+접속계정 : <c:out value="${USER_INFO.id}"/>
+
 <div class="container">
 	<div id="contents">
 		<div id="bbs_wrap">
@@ -45,6 +47,7 @@
 					<dt>조회수</dt>
 					<dd><c:out value="${result.inqireCo}" /></dd>
 				</dl>
+				<%-- 
 				<dl class="tit_view">
 					<dt>첨부파일목록</dt>
 					<dd>
@@ -53,6 +56,7 @@
 		                </c:import>
 					</dd>
 				</dl>
+				 --%>
 				<div class="view_cont">
 					<c:out value="${result.boardCn}" escapeXml="false" />
 				</div>

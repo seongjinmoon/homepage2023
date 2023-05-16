@@ -77,7 +77,12 @@ public class BoardController {
 	public String select(@ModelAttribute("searchVO") BoardVO searchVO, HttpServletRequest request, ModelMap model) throws Exception{
 		LoginVO user = (LoginVO)EgovUserDetailsHelper.getAuthenticatedUser();
 		model.addAttribute("USER_INFO", user);
-		
+		/*
+		//조회수 업데이트
+		boardService.updateViewCnt(searchVO);
+		String a = null;
+		if(a.equals("aa")) a = "";
+		*/
 		BoardVO result = boardService.selectBoard(searchVO);
 		//비밀 글여부 체크
 		if("Y".equals(result.getOthbcAt())) {
@@ -131,7 +136,7 @@ public class BoardController {
 	    	model.addAttribute("message", "로그인 후 사용가능합니다.");
 	    	return "forward:/board/selectList.do";
 		}
-	    
+	    /*
 		List<FileVO> result = null;
 	    String atchFileId = "";
 
@@ -141,7 +146,7 @@ public class BoardController {
 			atchFileId = fileMngService.insertFileInfs(result);
 	    }
 	    searchVO.setAtchFileId(atchFileId);
-		
+		*/
 	    searchVO.setCreatIp(request.getRemoteAddr());
 	    searchVO.setUserId(user.getId());
 	    
@@ -167,7 +172,7 @@ public class BoardController {
 		}else if("admin".equals(user.getId())){
 			searchVO.setMngAt("Y");
 		}
-	    
+	    /*
 		String atchFileId = searchVO.getAtchFileId();
 		final Map<String, MultipartFile> files = multiRequest.getFileMap();
 	    if(!files.isEmpty()) {
@@ -183,6 +188,7 @@ public class BoardController {
 			    fileMngService.updateFileInfs(_result);
 			}
 	    }
+	    */
 	    searchVO.setUserId(user.getId());
 	    
 		boardService.updateBoard(searchVO);

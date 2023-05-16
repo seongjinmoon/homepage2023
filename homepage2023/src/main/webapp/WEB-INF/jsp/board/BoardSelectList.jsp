@@ -28,6 +28,8 @@
   	<c:if test="${not empty searchVO.searchKeyword}"><c:param name="searchKeyword" value="${searchVO.searchKeyword}" /></c:if>
 </c:url>
 
+접속계정 : <c:out value="${USER_INFO.id}"/>
+
 <div class="container">
 	<div id="contents">
 		<%-- 검색영역 --%>

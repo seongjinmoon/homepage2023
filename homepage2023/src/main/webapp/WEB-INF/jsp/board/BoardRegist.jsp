@@ -13,6 +13,7 @@
 <meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no" />
 <title>수업용 게시판</title>
 <script src="http://code.jquery.com/jquery-latest.min.js"></script>
+<%--
 <script src="https://cdn.tiny.cloud/1/2xpj4d22abg4qy6hhumahoojfub87knrquwrq4mbmjj9saoo/tinymce/6/tinymce.min.js" referrerpolicy="origin"></script>
 <script>
 $(function(){
@@ -89,6 +90,7 @@ $(function(){
     });
 });
 </script>
+--%>
 </head>
 <body>
 
@@ -157,6 +159,7 @@ $(function(){
 		                    <textarea id="boardCn" name="boardCn" rows="15" title="내용입력"><c:out value="${result.boardCn}"/></textarea>
 		                </td>
 		            </tr>
+		            <%--
 		            <c:if test="${not empty result.atchFileId}">
 			            <tr>
 			                <th scope="row">기존<br/>첨부파일목록</th>
@@ -167,7 +170,7 @@ $(function(){
 			                </td>
 			            </tr>
 		            </c:if>
-		            <%--
+		            
 		            <tr>
 		                <th scope="row">파일첨부</th>
 		                <td>
@@ -228,7 +231,7 @@ function regist(){
 	}
 	
 	//에디터 내용 저장
-	$("#boardCn").val(tinymce.activeEditor.getContent());
+	//$("#boardCn").val(tinymce.activeEditor.getContent());
 }
 </script>
 
