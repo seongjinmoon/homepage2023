@@ -98,7 +98,7 @@ public class BoardController {
 
 	//게시물 등록/수정
 	@RequestMapping(value = "/board/boardRegist.do")
-	public String boardRegist(@ModelAttribute("searchVO") BoardVO BoardVO, HttpServletRequest request, ModelMap model) throws Exception{
+	public String boardRegist(@ModelAttribute("searchVO") BoardVO boardVO, HttpServletRequest request, ModelMap model) throws Exception{
 		LoginVO user = (LoginVO)EgovUserDetailsHelper.getAuthenticatedUser();
 	    if(user == null || user.getId() == null){
 	    	model.addAttribute("message", "로그인 후 사용가능합니다.");
@@ -108,8 +108,8 @@ public class BoardController {
 		}
 	    
 		BoardVO result = new BoardVO();
-		if(!EgovStringUtil.isEmpty(BoardVO.getBoardId())) {
-			result = boardService.selectBoard(BoardVO);
+		if(!EgovStringUtil.isEmpty(boardVO.getBoardId())) {
+			result = boardService.selectBoard(boardVO);
 			//본인 및 관리자만 허용
 			if(!user.getId().equals(result.getFrstRegisterId()) && !"admin".equals(user.getId())){
 				model.addAttribute("message", "작성자 본인만 확인 가능합니다.");
@@ -136,7 +136,7 @@ public class BoardController {
 	    	model.addAttribute("message", "로그인 후 사용가능합니다.");
 	    	return "forward:/board/selectList.do";
 		}
-	    /*
+	    
 		List<FileVO> result = null;
 	    String atchFileId = "";
 
@@ -146,7 +146,7 @@ public class BoardController {
 			atchFileId = fileMngService.insertFileInfs(result);
 	    }
 	    searchVO.setAtchFileId(atchFileId);
-		*/
+		
 	    searchVO.setCreatIp(request.getRemoteAddr());
 	    searchVO.setUserId(user.getId());
 	    
@@ -172,7 +172,7 @@ public class BoardController {
 		}else if("admin".equals(user.getId())){
 			searchVO.setMngAt("Y");
 		}
-	    /*
+	    
 		String atchFileId = searchVO.getAtchFileId();
 		final Map<String, MultipartFile> files = multiRequest.getFileMap();
 	    if(!files.isEmpty()) {
@@ -188,7 +188,7 @@ public class BoardController {
 			    fileMngService.updateFileInfs(_result);
 			}
 	    }
-	    */
+	    
 	    searchVO.setUserId(user.getId());
 	    
 		boardService.updateBoard(searchVO);

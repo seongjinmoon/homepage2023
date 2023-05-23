@@ -99,6 +99,14 @@ $(function(){
 <!-- 공통 Style -->
 <link href="/asset/LYTTMP_0000000000000/style.css" rel="stylesheet" />
 
+<%-- 기본 URL --%>
+<c:url var="_BASE_PARAM" value="">
+	<c:param name="menuNo" value="50"/>
+  	<c:if test="${not empty searchVO.searchCondition}"><c:param name="searchCondition" value="${searchVO.searchCondition}" /></c:if>
+  	<c:if test="${not empty searchVO.searchKeyword}"><c:param name="searchKeyword" value="${searchVO.searchKeyword}" /></c:if>
+</c:url>
+
+
 <c:choose>
 	<c:when test="${not empty searchVO.boardId}">
 		<c:set var="actionUrl" value="/board/update.do"/>
@@ -110,7 +118,7 @@ $(function(){
 
 <div class="container">
 	<div id="contents">
-		<form action="${actionUrl}" method="post" id="frm" name="frm" onsubmit="return regist()"> <!-- enctype="multipart/form-data" -->
+		<form action="${actionUrl}" method="post" id="frm" name="frm" onsubmit="return regist()" enctype="multipart/form-data"> 
 			<input type="hidden" name="boardId" value="${result.boardId}"/>
 			<!-- <input type="hidden" name="returnUrl" value="/board/boardRegist.do"/> -->
 			
@@ -140,11 +148,11 @@ $(function(){
 		            <tr>
 		                <th scope="row">비공개여부</th>
 		                <td>
-		                    <label for="noticeAtY">예 : </label> 
+		                    <label for="othbcAtY">예 : </label> 
 							<input type="radio" id="othbcAtY" value="Y" name="othbcAt" <c:if test="${result.othbcAt eq 'Y'}">checked="checked"</c:if>/>
 							&nbsp;&nbsp;&nbsp;
-							<label for="noticeAtN">아니오 : </label> 
-							<input type="radio" id="othbcAtAtN" value="N" name="othbcAt" <c:if test="${result.othbcAt ne 'Y'}">checked="checked"</c:if>/>
+							<label for="othbcAtN">아니오 : </label> 
+							<input type="radio" id="othbcAtN" value="N" name="othbcAt" <c:if test="${result.othbcAt ne 'Y'}">checked="checked"</c:if>/>
 		                </td>
 		            </tr>
 		            <tr>
@@ -159,7 +167,7 @@ $(function(){
 		                    <textarea id="boardCn" name="boardCn" rows="15" title="내용입력"><c:out value="${result.boardCn}"/></textarea>
 		                </td>
 		            </tr>
-		            <%--
+		            
 		            <c:if test="${not empty result.atchFileId}">
 			            <tr>
 			                <th scope="row">기존<br/>첨부파일목록</th>
@@ -181,7 +189,6 @@ $(function(){
 		                     -->
 		                </td>
 		            </tr>
-		            --%>
 		        </tbody>
 		    </table>
 			<div class="btn-cont ar">
@@ -201,7 +208,7 @@ $(function(){
 						<a href="#none" id="btn-reg" class="btn spot">등록</a>
 					</c:otherwise>
 				</c:choose>
-				<c:url var="listUrl" value="/board/selectList.do"/>
+				<c:url var="listUrl" value="/board/selectList.do${_BASE_PARAM}"/>
 			    <a href="${listUrl}" class="btn">취소</a>
 			</div>
 		</form>

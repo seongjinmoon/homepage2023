@@ -132,7 +132,8 @@
 		    </div>
 		</div>
 		<div class="btn-cont ar">
-		    <a href="/board/boardRegist.do" class="btn spot"><i class="ico-check-spot"></i> 글쓰기</a>
+			<c:url var="regUrl" value="/board/boardRegist.do${_BASE_PARAM}"/>
+		    <a href="${regUrl}" class="btn spot"><i class="ico-check-spot"></i> 글쓰기</a>
 		</div>
 	</div>
 </div>
