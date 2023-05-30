@@ -13,7 +13,6 @@
 <meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no" />
 <title>수업용 게시판</title>
 <script src="http://code.jquery.com/jquery-latest.min.js"></script>
-<%--
 <script src="https://cdn.tiny.cloud/1/2xpj4d22abg4qy6hhumahoojfub87knrquwrq4mbmjj9saoo/tinymce/6/tinymce.min.js" referrerpolicy="origin"></script>
 <script>
 $(function(){
@@ -90,7 +89,6 @@ $(function(){
     });
 });
 </script>
---%>
 </head>
 <body>
 
@@ -120,7 +118,8 @@ $(function(){
 	<div id="contents">
 		<form action="${actionUrl}" method="post" id="frm" name="frm" onsubmit="return regist()" enctype="multipart/form-data"> 
 			<input type="hidden" name="boardId" value="${result.boardId}"/>
-			<!-- <input type="hidden" name="returnUrl" value="/board/boardRegist.do"/> -->
+			<%-- 첨부파일 삭제 때문에 returnUrl존재 --%>
+			<input type="hidden" name="returnUrl" value="/board/boardRegist.do"/>
 			
 			<table class="chart2">
 		        <caption>게시글 작성</caption>
@@ -183,10 +182,8 @@ $(function(){
 		                <th scope="row">파일첨부</th>
 		                <td>
 		                    <input type="file" name="file_1"/>
-		                    <!-- 
 		                    <br/>
 		                    <input type="file" name="file_2"/>
-		                     -->
 		                </td>
 		            </tr>
 		        </tbody>
@@ -236,9 +233,6 @@ function regist(){
 		$("#boardSj").focus();
 		return false;
 	}
-	
-	//에디터 내용 저장
-	//$("#boardCn").val(tinymce.activeEditor.getContent());
 }
 </script>
 
