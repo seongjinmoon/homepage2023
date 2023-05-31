@@ -43,6 +43,7 @@ public class FileMngUtil {
     private EgovIdGnrService idgenService;
 
     //첨부파일에 대한 목록 정보를 취득한다.
+    //import(여러개 나오는 것) : java.util
     public List<FileVO> parseFileInf(Map<String, MultipartFile> files, String KeyStr, int fileKeyParam, String atchFileId, String storePath) throws Exception {
 		int fileKey = fileKeyParam;
 		
@@ -126,6 +127,7 @@ public class FileMngUtil {
     }
     
     //첨부파일 바로저장(확장자 포함)
+    /*
     public List<FileVO> directParseFileInf(Map<String, MultipartFile> files, String KeyStr, int fileKeyParam, String atchFileId, String storePath) throws Exception {
 		int fileKey = fileKeyParam;
 		
@@ -197,5 +199,6 @@ public class FileMngUtil {
 	
 		return result;
     }
+    */
 
 }
