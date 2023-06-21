@@ -72,7 +72,7 @@
 				<td><input type="text" id="passwordCnsr" name="passwordCnsr" required/></td>
 			</tr>
 			<tr>
-				<th><label for="emailId">이메일</label></th>
+				<th><strong class="star">*</strong><label for="emailId">이메일</label></th>
 				<td>
 					<input type="text" id="emailId" name="emailId" required/> @ <input type="text" id="emailDomain" name="emailDomain" required/>
 					<select id="domain">
