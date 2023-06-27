@@ -38,9 +38,9 @@
 		</div>
 		<div class="check">
 			필수(
-                <input type="radio" class="vMid" id="agree01" name="agree1">
+                <input type="radio" class="vMid" id="agree01" name="agree01" value="Y">
                 <label for="agree01">동의</label>
-                <input type="radio" class="vMid" id="agree01-1" name="agree1" checked="checked">
+                <input type="radio" class="vMid" id="agree01-1" name="agree01" value="N" checked="checked">
                 <label for="agree01-1">비동의</label>
                 )
 		</div>
@@ -51,9 +51,9 @@
 		</div>
 		<div class="check">
 			필수(
-                  <input type="radio" class="vMid" id="agree02" name="agree02">
+                  <input type="radio" class="vMid" id="agree02" name="agree02" value="Y">
                   <label for="agree02">동의</label>
-                  <input type="radio" class="vMid" id="agree02-1" name="agree02" checked="checked">
+                  <input type="radio" class="vMid" id="agree02-1" name="agree02" value="N" checked="checked">
                   <label for="agree02-1">비동의</label>
                   )
 		</div>
@@ -64,9 +64,9 @@
 		</div>
 		<div class="check">
 			선택(
-                  <input type="radio" class="vMid" id="agree03" name="agree03">
+                  <input type="radio" class="vMid" id="agree03" name="agree03" value="Y">
                   <label for="agree03">동의</label>
-                  <input type="radio" class="vMid" id="agree03-1" name="agree03" checked="checked">
+                  <input type="radio" class="vMid" id="agree03-1" name="agree03" value="N" checked="checked">
                   <label for="agree03-1">비동의</label>
                   )
 		</div>
@@ -77,10 +77,14 @@
 	<label><input type="checkbox" id="check_all"/> 모든 약관에 동의합니다.</label>
 </div>
 <div class="btn-cont">
-	<a href="/join/memberType.do" class="btn spot btn_next fn">다음</a>
+	<a href="/join/memberType.do" class="btn spot btn_next">다음</a>
 </div>
-         
+
 <script>
+<c:if test="${not empty message}">
+	alert("${message}");
+</c:if>
+
 function cnfirm(){
 	if(!$('input[id=agree01]:checked').is(':checked')){
 		alert('이용약관에 동의하지 않으셨습니다.');

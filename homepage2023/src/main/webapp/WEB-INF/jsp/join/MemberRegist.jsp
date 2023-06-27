@@ -18,14 +18,12 @@
 <body>
 
 <div class="tit_intro_step">
-	<div class="tit_intro_step">
-	    <ul>
-	        <li>약관동의</li>
-	        <li>회원유형</li>
-	        <li class="current">정보입력</li>
-	        <li>가입완료</li>
-	    </ul>
-	</div>
+    <ul>
+        <li>약관동의</li>
+        <li>회원유형</li>
+        <li class="current">정보입력</li>
+        <li>가입완료</li>
+    </ul>
 </div>
 
 <h2 class="icon1">회원정보입력</h2>
@@ -65,7 +63,14 @@
 			</tr>
 			<tr>
 				<th><strong class="star">*</strong><label for="passwordHint">비밀번호 힌트</label></th>
-				<td><input type="text" id="passwordHint" name="passwordHint" required/></td>
+				<td>
+					<select id="passwordHint" name="passwordHint" required>
+						<option value="1">취미 생활은?</option>
+						<option value="2">애완견 이름은?</option>
+						<option value="3">취직하고 싶은 곳은?</option>
+						<option value="4">여행가고 싶은 곳은?</option>
+					</select>
+				</td>
 			</tr>
 			<tr>
 				<th><strong class="star">*</strong><label for="passwordCnsr">비밀번호 정답</label></th>

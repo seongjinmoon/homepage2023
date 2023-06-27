@@ -18,43 +18,69 @@
 <body>
 
 <div class="tit_intro_step">
-	<div class="tit_intro_step">
-	    <ul>
-	        <li>약관동의</li>
-	        <li class="current">회원유형</li>
-	        <li>정보입력</li>
-	        <li>가입완료</li>
-	    </ul>
-	</div>
+    <ul>
+        <li>약관동의</li>
+        <li class="current">회원유형</li>
+        <li>정보입력</li>
+        <li>가입완료</li>
+    </ul>
 </div>
 
 <h2 class="icon1">회원유형 선택</h2>
-<div class="confirm-area user-area">
-	<article>
-		<h3 class="icon2 ico-user">일반회원</h3>
-        <div class="confirm_box">
-			<p class="mB20">일반회원 </p>
-			<div class="btn-cont"><a href="/join/memberRegist.do?loginType=normal" class="btn spot member-type"><span>회원가입</span></a></div>
-		</div>
-	</article>
-	
-	<article>
-		<h3 class="icon2 ico-user">SNS회원</h3>
-        <div class="confirm_box">
-			<p class="mB20">카카오 회원</p>
-			<div class="btn-cont"><a class="btn-kakao" href="#" data-type="join"><img src="http://k.kakaocdn.net/14/dn/btroDszwNrM/I6efHub1SN5KCJqLm1Ovx1/o.jpg" width="150" alt="카카오 로그인 버튼"/></a></div>
-		</div>
-	</article>
-	
-	<article>
-		<h3 class="icon2 ico-user">SNS회원</h3>
-        <div class="confirm_box">
-			<p class="mB20">네이버 회원</p>
-			<div class="btn-cont"><a class="btn-naver" href="${naverAuthUrl}" data-type="join"><img src="/asset/front/images/common/btn-naver.png" width="150" alt="네이버 로그인 버튼"/></a></div>
-		</div>
-	</article>
-</div>
+
+<form id="frm" name="frm" action="/join/memberRegist.do" method="post">
+	<input type="hidden" name="agree01" value="${searchVO.agree01}"/>
+	<input type="hidden" name="agree02" value="${searchVO.agree02}"/>
+	<input type="hidden" name="agree03" value="${searchVO.agree03}"/>
+	<input type="hidden" name="loginType" value="normal"/>
+
+	<div class="confirm-area user-area">
+		<article>
+			<h3 class="icon2 ico-user">일반회원</h3>
+	        <div class="confirm_box">
+				<p class="mB20">일반회원 </p>
+				<div class="btn-cont">
+					<a href="/join/memberRegist.do?loginType=normal" class="btn spot member-type btn-regist"><span>회원가입</span></a>
+				</div>
+			</div>
+		</article>
 		
+		<article>
+			<h3 class="icon2 ico-user">SNS회원</h3>
+	        <div class="confirm_box">
+				<p class="mB20">카카오 회원</p>
+				<div class="btn-cont">
+					<a class="btn-kakao" href="#" data-type="join">
+						<img src="http://k.kakaocdn.net/14/dn/btroDszwNrM/I6efHub1SN5KCJqLm1Ovx1/o.jpg" width="150" alt="카카오 로그인 버튼"/>
+					</a>
+				</div>
+			</div>
+		</article>
+		
+		<article>
+			<h3 class="icon2 ico-user">SNS회원</h3>
+	        <div class="confirm_box">
+				<p class="mB20">네이버 회원</p>
+				<div class="btn-cont">
+					<a class="btn-naver" href="${naverAuthUrl}" data-type="join">
+						<img src="/asset/front/images/common/btn-naver.png" width="150" alt="네이버 로그인 버튼"/>
+					</a>
+				</div>
+			</div>
+		</article>
+	</div>
+</form>
+
+<%-- 2023-06-21에 추가 됨 학생들 코드랑 다름 --%>
+<script>
+$(document).ready(function(){
+	$(".btn-regist").click(function(){
+		$("#frm").submit();
+		return false;
+	});
+});
+</script>
+
 <!-- 
 <form id="joinFrm" name="joinFrm" method="post" action="/join/insertMember.do">
 	<input type="hidden" name="loginType" value=""/>

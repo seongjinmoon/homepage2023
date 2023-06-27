@@ -31,7 +31,7 @@ public class JoinController {
 	@Resource(name = "egovMessageSource")
 	EgovMessageSource egovMessageSource;
 	
-	//회원구분
+	//약관동의
 	@RequestMapping(value = "/join/siteUseAgree.do")
 	public String siteUseAgree(@ModelAttribute("searchVO") JoinVO vo,  HttpServletRequest request, ModelMap model, HttpSession session) throws Exception{
 		
@@ -41,6 +41,11 @@ public class JoinController {
 	//회원구분
 	@RequestMapping(value = "/join/memberType.do")
 	public String memberType(@ModelAttribute("searchVO") JoinVO vo,  HttpServletRequest request, ModelMap model, HttpSession session) throws Exception{
+		//약관동의
+		if(!"Y".equals(vo.getAgree01()) || !"Y".equals(vo.getAgree02())) {
+			model.addAttribute("message", "잘못 된 접근입니다.");
+			return "forward:/join/siteUseAgree.do";
+		}
 		/*
 		//Naver
         String domain = request.getServerName();
@@ -53,6 +58,15 @@ public class JoinController {
 	//회원등록 폼
 	@RequestMapping(value = "/join/memberRegist.do")
 	public String memberRegist(@ModelAttribute("searchVO") JoinVO vo,  HttpServletRequest request, ModelMap model) throws Exception{
+		//약관동의
+		if(!"Y".equals(vo.getAgree01()) || !"Y".equals(vo.getAgree02())) {
+			model.addAttribute("message", "잘못 된 접근입니다.");
+			return "forward:/join/siteUseAgree.do";
+		//회원유형선택여부	
+		}else if(EgovStringUtil.isEmpty(vo.getLoginType())) {
+			model.addAttribute("message", "잘못 된 접근입니다.");
+			return "forward:/join/siteUseAgree.do";
+		}
 		
 		return "join/MemberRegist";
 	}

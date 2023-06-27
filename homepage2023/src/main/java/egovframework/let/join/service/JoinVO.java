@@ -42,6 +42,15 @@ public class JoinVO extends ComDefaultVO implements Serializable{
 	
 	//가입일자
 	private java.util.Date sbscrbDe;
+	
+	//약관동의 - 이용약관
+	private String agree01;
+	
+	//약관동의 - 개인정보 수집
+	private String agree02;
+	
+	//약관동의 - 개인정보 제3자제공
+	private String agree03;
 
 	public String getEmplyrId() {
 		return emplyrId;
@@ -137,6 +146,30 @@ public class JoinVO extends ComDefaultVO implements Serializable{
 
 	public void setEmailDomain(String emailDomain) {
 		this.emailDomain = emailDomain;
+	}
+
+	public String getAgree01() {
+		return agree01;
+	}
+
+	public void setAgree01(String agree01) {
+		this.agree01 = agree01;
+	}
+
+	public String getAgree02() {
+		return agree02;
+	}
+
+	public void setAgree02(String agree02) {
+		this.agree02 = agree02;
+	}
+
+	public String getAgree03() {
+		return agree03;
+	}
+
+	public void setAgree03(String agree03) {
+		this.agree03 = agree03;
 	}
 	
 	
