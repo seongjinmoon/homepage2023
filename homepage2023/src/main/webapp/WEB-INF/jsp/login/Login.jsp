@@ -70,20 +70,7 @@ function checkGnrlLogin(frm) {
 		return false;
 	}
 	
-	var Dns;
-	Dns = location.href;
-	
-	Dns = Dns.split("//");
-	
-	if(Dns.length > 1 && Dns[1].indexOf("returnUrl") > 0){
-		Dns = Dns[1].substring(Dns[1].indexOf("returnUrl=")+10, Dns[1].length);
-		$("#url").val(Dns);
-	}
-	
-	//NetFunnel_Action({action_id : "login"},$("#frmGnrlLogin"));
-	NetFunnel_Action({action_id : "login"},function(ev,ret){
-		$("#frmGnrlLogin");
-	});
+	$("#frmGnrlLogin");
 }
 
 $(document).ready(function(){
