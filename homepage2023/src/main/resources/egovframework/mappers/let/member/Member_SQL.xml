@@ -16,25 +16,6 @@
 		<result property="emailAdres" column="EMAIL_ADRES"/>
 	</resultMap>
 	
-	<select id="selectMberList" resultType="egovMap">
-		SELECT
-			ESNTL_ID
-			, EMPLYR_ID 
-			, USER_NM 
-			, EMAIL_ADRES
-		FROM LETTNEMPLYRINFO
-		WHERE EMPLYR_STTUS_CODE = 'P'
-		ORDER BY SBSCRB_DE DESC
-		LIMIT #{recordCountPerPage} OFFSET #{firstIndex}
-	</select>
-	
-	<select id="selectMberListCnt" resultType="java.lang.Integer">
-		SELECT
-		  COUNT(*) CNT
-		FROM LETTNEMPLYRINFO
-		WHERE EMPLYR_STTUS_CODE = 'P'
-	</select>
-	
 	<select id="findId" resultMap="findId">
 		SELECT
 			ESNTL_ID
@@ -46,6 +27,7 @@
 			AND USER_NM = #{userNm}
 			AND PASSWORD_HINT = #{passwordHint}
 			AND PASSWORD_CNSR = #{passwordCnsr}
+			AND EMAIL_ADRES = #{emailAdres}
 		ORDER BY SBSCRB_DE DESC
 		LIMIT 1
 	</select>
@@ -71,4 +53,24 @@
 			PASSWORD = #{password}
 		WHERE ESNTL_ID = #{esntlId}
 	</update>
+	
+	<select id="selectMberList" resultType="egovMap">
+		SELECT
+			ESNTL_ID
+			, EMPLYR_ID 
+			, USER_NM 
+			, EMAIL_ADRES
+		FROM LETTNEMPLYRINFO
+		WHERE EMPLYR_STTUS_CODE = 'P'
+		ORDER BY SBSCRB_DE DESC
+		LIMIT #{recordCountPerPage} OFFSET #{firstIndex}
+	</select>
+	
+	<select id="selectMberListCnt" resultType="java.lang.Integer">
+		SELECT
+		  COUNT(*) CNT
+		FROM LETTNEMPLYRINFO
+		WHERE EMPLYR_STTUS_CODE = 'P'
+	</select>
+	
 </mapper>

@@ -30,7 +30,7 @@
                     <input type="text" name="userNm" class="inp" id="userNm" />
                 </div>
                 <div>
-                    <label for="userNm">아이디</label>
+                    <label for="emplyrId">아이디</label>
                     <input type="text" name="emplyrId" class="inp" id="emplyrId" />
                 </div>
                 <div>

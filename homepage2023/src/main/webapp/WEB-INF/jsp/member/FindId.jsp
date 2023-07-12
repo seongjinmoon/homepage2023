@@ -30,6 +30,10 @@
                     <input type="text" name="userNm" class="inp" id="userNm" />
                 </div>
                 <div>
+                    <label for="emailAdres">이메일</label>
+                    <input type="text" name="emailAdres" class="inp" id="emailAdres" />
+                </div>
+                <div>
                 	<label for="passwordHint">힌트</label>
                     <select id="passwordHint" name="passwordHint" required>
 						<option value="1">취미 생활은?</option>

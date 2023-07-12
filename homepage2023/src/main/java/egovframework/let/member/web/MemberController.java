@@ -65,7 +65,7 @@ public class MemberController {
 	@RequestMapping(value = "/member/findPasswordRegist.do")
 	public String findPasswordRegist(@ModelAttribute("searchVO") MemberVO vo,  HttpServletRequest request, ModelMap model, HttpSession session) throws Exception{
 		
-		MemberVO result = memberService.findId(vo);
+		MemberVO result = memberService.findPassword(vo);
 		if(result == null || EgovStringUtil.isEmpty(result.getEmplyrId())) {
 			model.addAttribute("message", "가입 된 회원정보가 없습니다.");
 			return "forward:/member/findPassword.do";
