@@ -80,7 +80,7 @@ public class MemberController {
 	public String findPasswordComplete(@ModelAttribute("searchVO") MemberVO vo,  HttpServletRequest request, ModelMap model, HttpSession session) throws Exception{
 		
 		memberService.passwordUpdate(vo);
-		model.addAttribute("message", "비밀번호가 업데이트 되었습니다.");
+		model.addAttribute("loginMessage", "비밀번호가 업데이트 되었습니다.");
 		
 		return "forward:/login/login.do";
 	}
